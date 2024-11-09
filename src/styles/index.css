@@ -1,3 +1,14 @@
 /* 
     General Styles
 */
+body{
+    background-color: black;
+}
+.card-text{
+    color: rgb(54, 54, 54);
+}
+.container{
+    background-color: white;
+    margin-top: 5%;
+    padding-bottom: 5%;
+}
