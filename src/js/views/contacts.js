@@ -2,7 +2,7 @@ import React from "react";
 import { ContactCard } from "../component/contactCard";
 import { Navbar } from "../component/navbar";
 
-export const Home = () => {
+export const Contacts = () => {
 	return (
 
 		<div className="container">
@@ -16,4 +16,3 @@ export const Home = () => {
 		</div>
 	)
 };
-
