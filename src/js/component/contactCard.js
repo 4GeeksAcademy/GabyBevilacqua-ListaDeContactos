@@ -11,7 +11,19 @@ export const ContactCard = (image, fullName, email, phone, address) => {
     Swal.fire({
       title: "Are you sure?",
       text: "With this action you delete the contact for good",
-      icon: "question"
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "The contact has been deleted.",
+          icon: "success"
+        });
+      }
     });
 
     actions.deleteContact(contact.id);

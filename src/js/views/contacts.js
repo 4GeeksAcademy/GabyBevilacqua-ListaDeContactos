@@ -9,9 +9,7 @@ export const Contacts = () => {
 			<Navbar/>
 			<div>
 				<ContactCard />
-				<ContactCard />
-				<ContactCard />
-				<ContactCard />
+		
 			</div>
 		</div>
 	)
