@@ -1,31 +1,37 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			addContact: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			contact: [],
+			agenda: {
+				slug: "",
+				id: null
+			}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			
+
 			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+				getActions().createAgenda(0, "green");
 			},
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+
 			},
-			changeColor: (index, color) => {
+			createAgenda: async (name) => {
+				try {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${name}`, {
+
+						method: "POST",
+						headers: { "Content-Type": "application/json" }
+					});
+
+					if (!response.ok) {
+						throw new error("error creando agenda")
+					}
+
+
+				} catch (error) {
+
+				}
 				//get the store
 				const store = getStore();
 
@@ -38,7 +44,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ addContact: addContact });
-			}
+			},
+
+			/* createContact : async () => {
+				try {
+				const response = await fetch (url, {
+				method: "POST",
+				body: JSON.stringify{
+				Contacts
+				},
+
+				})
+				}
+			} 
+				*/
 		}
 	};
 };

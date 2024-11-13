@@ -24,11 +24,11 @@ export const EditContact = () => {
                 <input type="text" className="form-control" id="address" placeholder="Enter address" />
             </div>
             <br />
-            <Link to="/">
+            <Link to="/contacts">
                 <button className="btn btn-primary me-2">Save changes</button>
             </Link>
-            <Link to="/">
-                <span className="text">or get back to contacts</span>
+            <Link to="/contacts">
+                <span className="text">Get back to contacts</span>
             </Link>
         </div>
 
