@@ -11,7 +11,7 @@ const injectContext = PassedComponent => {
 			getState({
 				getStore: () => state.store,
 				getActions: () => state.actions,
-				setStore: updatedStore =>
+				setStore: (updatedStore) =>
 					setState({
 						store: Object.assign(state.store, updatedStore),
 						actions: { ...state.actions }
@@ -20,6 +20,8 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+
+	//		state.actions.fetchContacts();   como funciona esto que se nombre en flux dado en chatGPT
 
 		}, []);
 

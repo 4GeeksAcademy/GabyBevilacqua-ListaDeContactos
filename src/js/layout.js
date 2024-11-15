@@ -8,7 +8,7 @@ import { AddContact } from "./views/addContact";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+// import { Navbar } from "./component/navbar";
 import { EditContact } from "./views/editContact";
 // import { Footer } from "./component/footer";
 

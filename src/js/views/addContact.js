@@ -2,11 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { createHashRouter, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-//import "../../styles/demo.css";
-
 export const AddContact = () => {
     const { store, actions } = useContext(Context);
-    const [contacto, setNewContacto] = useState({
+    const [contacto, setContacto] = useState({
         name: "",
         email: "",
         phone: "",
@@ -14,21 +12,20 @@ export const AddContact = () => {
     });
 
     const handleChange = (e) => {
-    
-        setNewContacto(prev => {
-            return { ...prev,[e.target.name]: e.target.value }
+
+        setContacto(prev => {
+            return { ...prev, [e.target.name]: e.target.value }
         })
     }
 
-    const handleSubmit = (e) => {
-        e.prevent.default()
-        actions.createContact(contacto).then(console.log)
+    const handleSubmit = () => {
+       
+        actions.createContact("gilipollas", contacto).then(console.log)
     }
-
 
     useEffect(() => {
 
-      //  createUser() // esta funcion esta en flux con post
+        //  createUser() // esta funcion esta en flux con post
 
     }, [])
 
@@ -38,38 +35,38 @@ export const AddContact = () => {
             <div className="mb-3 pt-3">
                 <label htmlFor="name" className="form-label">Full Name</label>
                 <input
-                value={contacto.name}
+                    value={contacto.name}
                     onChange={handleChange}
                     name="name"
                     type="text" className="form-control" id="fullName" placeholder="Enter Full Namer" />
             </div>
             <div className="mb-3">
                 <label htmlFor="email" className="form-label">Email</label>
-                <input 
-                 value={contacto.email}
-                 onChange={handleChange}
-                 name="email"
-                type="email" className="form-control" id="email" placeholder="Enter email" />
+                <input
+                    value={contacto.email}
+                    onChange={handleChange}
+                    name="email"
+                    type="email" className="form-control" id="email" placeholder="Enter email" />
             </div>
             <div className="mb-3">
                 <label htmlFor="phone" className="form-label">Phone</label>
-                <input 
-                 value={contacto.phone}
-                 onChange={handleChange}
-                 name="phone"
-                 type="tel" className="form-control" id="phone" placeholder="Enter phone" />
+                <input
+                    value={contacto.phone}
+                    onChange={handleChange}
+                    name="phone"
+                    type="tel" className="form-control" id="phone" placeholder="Enter phone" />
             </div>
             <div className="mb-3">
                 <label htmlFor="address" className="form-label">Address</label>
-                <input 
-                 value={contacto.address}
-                 onChange={handleChange}
-                 name="address"
-                 type="text" className="form-control" id="address" placeholder="Enter address" />
+                <input
+                    value={contacto.address}
+                    onChange={handleChange}
+                    name="address"
+                    type="text" className="form-control" id="address" placeholder="Enter address" />
             </div>
             <br />
             <Link to="/contacts">
-                <button className="btn btn-primary me-2">Save</button>
+                <button onClick={handleSubmit} className="btn btn-primary me-2">Save</button>
             </Link>
             <Link to="/">
                 <span className="text">Get back to Crear Agenda</span>
@@ -103,4 +100,11 @@ export const AddContact = () => {
         </li>
     );
 })}
-</ul>*/
+</ul>
+
+https://guia-star-wars.vercel.app/
+
+https://starwars-visualguide.com/#/characters?page=1
+https://starwars-visualguide.com/#/
+
+*/
