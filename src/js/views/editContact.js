@@ -26,29 +26,44 @@ const { store, actions } = useContext();
         <div className="container">
             <h1 className="text-center pt-2">Update Contact</h1>
             <div className="mb-3 pt-3">
-                <label htmlFor="fullName" className="form-label">Full Name</label>
-                <input type="text" className="form-control" id="fullName" placeholder="Enter Full Namer" />
+                <label htmlFor="name" className="form-label">Full Name</label>
+                <input 
+                value= "contacto.name"
+                onChange="handleChange"
+                name="name"
+                type="text" className="form-control" id="fullName" placeholder="Enter Full Namer" />
             </div>
             <div className="mb-3">
                 <label htmlFor="email" className="form-label">Email</label>
-                <input type="email" className="form-control" id="email" placeholder="Enter email" />
+                <input 
+                 value= "contacto.email"
+                 onChange="handleChange"
+                 name="email"
+                type="email" className="form-control" id="email" placeholder="Enter email" />
             </div>
             <div className="mb-3">
                 <label htmlFor="phone" className="form-label">Phone</label>
-                <input type="tel" className="form-control" id="phone" placeholder="Enter phone" />
+                <input
+                 value= "contacto.phone"
+                 onChange="handleChange"
+                 name="phone" 
+                type="tel" className="form-control" id="phone" placeholder="Enter phone" />
             </div>
             <div className="mb-3">
                 <label htmlFor="address" className="form-label">Address</label>
-                <input type="text" className="form-control" id="address" placeholder="Enter address" />
+                <input
+                 value= "contacto.address"
+                 onChange="handleChange"
+                 name="address" 
+                type="text" className="form-control" id="address" placeholder="Enter address" />
             </div>
             <br />
             <Link to="/contacts">
                 <button className="btn btn-primary me-2">Save changes</button>
             </Link>
             <Link to="/contacts">
-                <span className="text">Get back to contacts</span>
+                <span className="text">Back to contacts</span>
             </Link>
         </div>
-
     );
 };

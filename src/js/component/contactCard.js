@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import fotogaby from "../../img/fotogaby.jpg";
+import rigo from "../../img/rigo-baby.jpg";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 
-export const ContactCard = (image, fullName, email, phone, address) => {
-  // const { store, actions } = useContext(Context)
+export const ContactCard = ({contact}) => {
+  
 
   const eliminarContacto = () => {
 
@@ -33,12 +33,12 @@ export const ContactCard = (image, fullName, email, phone, address) => {
     <div className="card mx-auto mb-1" style={{ width: "95%" }}>
       <div className="row g-0">
         <div className="col-md-2">
-          <img src={fotogaby} className="img-fluid rounded-circle mx-2 mt-2" style={{ width: "150px", height: "150px", objectFit: "cover" }} alt="imagen del contacto" />
+          <img src={rigo} className="img-fluid rounded-circle mx-2 mt-2" style={{ width: "150px", height: "150px", objectFit: "cover" }} alt="imagen del contacto" />
         </div>
         <div className="col-md-10">
           <div className="card-body">
             <div className="d-flex justify-content-between">
-              <h5 className="card-title text-start">Full Name</h5>
+              <h5 className="card-title text-start">{contact.name}</h5>
               <div>
                 <Link to="/editContact">
                   <button className="me-4"
@@ -53,14 +53,13 @@ export const ContactCard = (image, fullName, email, phone, address) => {
                 </button>
               </div>
             </div>
-            <p className="card-text text-start">Address</p>
-            <p className="card-text text-start">Phone</p>
-            <p className="card-text text-start">Email</p>
+            <p className="card-text text-start">{contact.address}</p>
+            <p className="card-text text-start">{contact.phone}</p>
+            <p className="card-text text-start">{contact.email}</p>
           </div>
         </div>
       </div>
     </div>
-
   )
 }
 

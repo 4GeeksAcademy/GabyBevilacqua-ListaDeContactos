@@ -4,7 +4,7 @@ import getState from "./flux.js";
 // Don't change, here is where we initialize our context, by default it's just going to be null.
 export const Context = createContext(null);  // null no se cambia 
 
-const injectContext = PassedComponent => {
+const injectContext = PassedComponent => {   
 	const StoreWrapper = props => {
 		//this will be passed as the contenxt value
 		const [state, setState] = useState(
@@ -18,12 +18,6 @@ const injectContext = PassedComponent => {
 					})
 			})
 		);
-
-		useEffect(() => {
-
-	//		state.actions.fetchContacts();   como funciona esto que se nombre en flux dado en chatGPT
-
-		}, []);
 
 		return (
 			<Context.Provider value={state}>

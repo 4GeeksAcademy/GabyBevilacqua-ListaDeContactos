@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { createHashRouter, Link } from "react-router-dom";
+import { createHashRouter, Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const AddContact = () => {
     const { store, actions } = useContext(Context);
+    const navigate = useNavigate()
     const [contacto, setContacto] = useState({
         name: "",
         email: "",
@@ -19,14 +20,14 @@ export const AddContact = () => {
     }
 
     const handleSubmit = () => {
-       
-        actions.createContact("gilipollas", contacto).then(console.log)
+
+        actions.createContact(store.agenda.slug, contacto).then(console.log)
     }
 
     useEffect(() => {
-
-        //  createUser() // esta funcion esta en flux con post
-
+        if (!store.agenda.slug) {
+            navigate("/");
+        }
     }, [])
 
     return (
@@ -68,8 +69,8 @@ export const AddContact = () => {
             <Link to="/contacts">
                 <button onClick={handleSubmit} className="btn btn-primary me-2">Save</button>
             </Link>
-            <Link to="/">
-                <span className="text">Get back to Crear Agenda</span>
+            <Link to="/contacts">
+                <span className="text">Back to contacts</span>
             </Link>
         </div>
     );
