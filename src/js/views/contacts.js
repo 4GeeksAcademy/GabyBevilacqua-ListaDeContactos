@@ -4,7 +4,6 @@ import { Navbar } from "../component/navbar";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router";
 
-
 export const Contacts = () => {
 const { store, actions } = useContext(Context);
 const navigate = useNavigate() 

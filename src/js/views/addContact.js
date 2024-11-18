@@ -67,45 +67,25 @@ export const AddContact = () => {
             </div>
             <br />
             <Link to="/contacts">
-                <button onClick={handleSubmit} className="btn btn-primary me-2">Save</button>
+                <button
+                    onClick={handleSubmit}
+                    style={{ backgroundColor: "rgb(76, 63, 104)" }}
+                    className="btn btn-secondary me-2">
+                    Save
+                </button>
             </Link>
             <Link to="/contacts">
-                <span className="text">Back to contacts</span>
+                <span className="text">
+                    Back to contacts
+                </span>
             </Link>
         </div>
     );
 };
 
-
-
-/*<ul className="list-group">
-{store.demo.map((item, index) => {
-    return (
-        <li
-            key={index}
-            className="list-group-item d-flex justify-content-between"
-            style={{ background: item.background }}>
-            <Link to={"/single/" + index}>
-                <span>Link to: {item.title}</span>
-            </Link>
-            {// Conditional render example
-                // Check to see if the background is orange, if so, display the message
-                item.background === "orange" ? (
-                    <p style={{ color: item.initial }}>
-                        Check store/flux.js scroll to the actions to see the code
-                    </p>
-                ) : null}
-            <button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-                Change Color
-            </button>
-        </li>
-    );
-})}
-</ul>
-
+/*
 https://guia-star-wars.vercel.app/
 
 https://starwars-visualguide.com/#/characters?page=1
 https://starwars-visualguide.com/#/
-
 */

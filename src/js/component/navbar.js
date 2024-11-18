@@ -6,10 +6,10 @@ export const Navbar = () => {
 		<nav className="navbar justify-content-end">
 			<div className="text-end">
 				<Link to="/addContact">
-					<button className="btn btn-success  me-2">Add new contact</button>
+					<button className="btn btn-secondary  me-2" style={{ backgroundColor: "rgb(76, 63, 104)"}}>Add new contact</button>
 				</Link>
 				<Link to="/">
-					<button className="btn btn-success">Go to Crear Agenda</button>
+					<button className="btn btn-secondary" style={{ backgroundColor: "rgb(76, 63, 104)"}}>Go to Crear Agenda</button>
 				</Link>
 			</div>
 		</nav>

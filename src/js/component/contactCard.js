@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import rigo from "../../img/rigo-baby.jpg";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { Context } from "../store/appContext";
 
-export const ContactCard = ({contact}) => {
-  
+export const ContactCard = ({ contact }) => {
+  const { store, actions } = useContext(Context);
 
   const eliminarContacto = () => {
 
@@ -16,39 +17,57 @@ export const ContactCard = ({contact}) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
+        await actions.deleteContact(store.agenda.slug, contact.id);
         Swal.fire({
           title: "Deleted!",
           text: "The contact has been deleted.",
           icon: "success"
         });
       }
-    });
-
-    actions.deleteContact(contact.id);
+    }); 
   };
+
   return (
 
     <div className="card mx-auto mb-1" style={{ width: "95%" }}>
       <div className="row g-0">
         <div className="col-md-2">
-          <img src={rigo} className="img-fluid rounded-circle mx-2 mt-2" style={{ width: "150px", height: "150px", objectFit: "cover" }} alt="imagen del contacto" />
+          <img
+            src={rigo}
+            className="img-fluid rounded-circle mx-2 mt-2"
+            style={{ width: "150px", height: "150px", objectFit: "cover" }}
+            alt="imagen del contacto"
+          />
         </div>
         <div className="col-md-10">
           <div className="card-body">
             <div className="d-flex justify-content-between">
               <h5 className="card-title text-start">{contact.name}</h5>
               <div>
-                <Link to="/editContact">
-                  <button className="me-4"
-                    style={{ color: "black", border: "none", borderRadius: "3px", cursor: "pointer" }}>
+                <Link to={`/editContact/${contact.id}`}>   
+                  <button
+                    className="me-4"
+                    style={{
+                      backgroundColor: "rgb(223, 214, 242)",
+                      color: "rgb(76, 63, 104)",
+                      border: "none",
+                      borderRadius: "3px",
+                      cursor: "pointer"
+                    }}>
                     <i className="fas fa-pencil-alt"></i>
                   </button>
                 </Link>
                 <button className="me-2"
                   onClick={eliminarContacto}
-                  style={{ color: "black", border: "none", borderRadius: "3px", cursor: "pointer" }}>
+                  style={{
+                    backgroundColor: "rgb(223, 214, 242)",
+                    color: "rgb(76, 63, 104)",
+                    border: "none",
+                    borderRadius: "3px",
+                    cursor: "pointer"
+                  }}>
                   <i className="far fa-trash-alt"></i>
                 </button>
               </div>
@@ -60,6 +79,6 @@ export const ContactCard = ({contact}) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
