@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 					if (!response.ok) {
 
-						throw new error("no se encuentra la agenda")
+						throw new Error("no se encuentra la agenda")
 					}
 					const result = await response.json();
 					setStore({
